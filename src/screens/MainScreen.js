@@ -1,9 +1,10 @@
-import { ButtonBase, Modal } from '@material-ui/core'
 import React, { useState } from 'react'
+import { ButtonBase, Modal, Tooltip } from '@material-ui/core'
+import Fade from '@material-ui/core/Fade'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 import PersonalInfoModal from '../components/PersonalInfoModal'
 import Profile from './Profile'
 import ProjectsLeftToRightScroll from './ProjectsLeftToRightScroll'
-// import Projects from './Projects'
 import useStyles from './styles/index.style'
 
 function MainScreen() {
@@ -21,36 +22,34 @@ function MainScreen() {
 
   return (
     <div className={classes.root}>
-      <div
-        id="sliderContainer"
-        className={classes.slider}
-        style={{ top: '0vh' }}
-      >
-        <div className={classes.page}>
-          <Profile />
-        </div>
-        <div className={classes.page}>
-          {/* <Projects /> */}
-          {/* <ProjectsLeftToRightScroll /> */}
-        </div>
+      <div className={classes.page}>
+        <Profile />
       </div>
+
+      <div>
+        <CopyToClipboard text="samereh@samerehgholami.com">
+          <Tooltip title="click to copy" TransitionComponent={Fade}>
+            <ButtonBase className={classes.emailBtn}>
+              samereh@samerehgholami.com
+            </ButtonBase>
+          </Tooltip>
+        </CopyToClipboard>
+      </div>
+
       <ButtonBase className={classes.aboutBtn} onClick={handleToggleAboutModal}>
         {infoModalIsOpen ? 'Close' : 'About'}
       </ButtonBase>
-
       <ButtonBase
         className={classes.projectsBtn}
         onClick={handleToggleProjectsModal}
       >
         {projectsModalIsOpen ? 'Close' : 'Projects'}
       </ButtonBase>
-
       <Modal open={infoModalIsOpen}>
         <div>
           <PersonalInfoModal />
         </div>
       </Modal>
-
       <Modal open={projectsModalIsOpen}>
         <div>
           <ProjectsLeftToRightScroll

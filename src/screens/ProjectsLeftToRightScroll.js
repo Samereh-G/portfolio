@@ -10,9 +10,6 @@ export default function ProjectsLeftToRightScroll() {
 
   return (
     <div className={classes.outerWrapper}>
-      {/* <div
-        className={`${classes.wrapper} animate__animated animate__fadeInRight`}
-      > */}
       <div className={classes.wrapper}>
         <div className={classes.slide}>
           <div className={classes.projectBox}>
@@ -29,7 +26,6 @@ export default function ProjectsLeftToRightScroll() {
                 <ButtonBase>info</ButtonBase>
               </div>
             </div>
-            {/* <div className={classes.infoBox}>text</div> */}
           </div>
         </div>
 

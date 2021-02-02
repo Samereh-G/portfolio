@@ -20,10 +20,19 @@ const useStyles = makeStyles(() => ({
   aboutBtn: {
     position: 'fixed',
     top: '50vh',
-    left: '1vw',
+    left: '2vw',
     color: '#fff',
     transform: 'rotate(-90deg)',
     zIndex: 1400
+  },
+  emailBtn: {
+    position: 'fixed',
+    top: '50vh',
+    right: '0vw',
+    color: '#fff',
+    transform: 'rotate(-90deg)',
+    zIndex: 1400
+    // fontSize: '0.5 rem'
   },
   projectsBtn: {
     position: 'fixed',

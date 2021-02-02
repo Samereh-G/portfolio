@@ -1,5 +1,6 @@
-import { Typography } from '@material-ui/core'
 import React from 'react'
+import { Spring } from 'react-spring/renderprops'
+import { Typography } from '@material-ui/core'
 import useStyles from './styles/ProfileTitle.style'
 
 export default function ProfileTitle() {
@@ -11,22 +12,46 @@ export default function ProfileTitle() {
         <div className={classes.circTxt} id="shadow">
           <Typography variant="h6" color="primary" style={{ fontWeight: 200 }}>
             In progress
-            <span className="animate__animated animate__infinite animate__fadeInLeft infinite animate__delay-0.2s">
-              ...
-            </span>
+            <span>...</span>
           </Typography>
         </div>
       </div>
-      <div className="animate__animated animate__fadeInDown animate__delay-1s">
-        <Typography variant="h2" color="primary" style={{ fontWeight: 700 }}>
-          Samereh Gholami
-        </Typography>
-      </div>
-      <div className="animate__animated animate__fadeInDown animate__delay-2s">
-        <Typography variant="h6" color="primary">
-          WEB DEVELOPER
-        </Typography>
-      </div>
+
+      <Spring
+        from={{ opacity: 0, marginTop: -500 }}
+        to={{ opacity: 1, marginTop: 100 }}
+        config={{ duration: 1000 }}
+      >
+        {(props) => (
+          <div style={props}>
+            <div>
+              <Typography
+                variant="h2"
+                color="primary"
+                style={{ fontWeight: 700 }}
+              >
+                Samereh Gholami
+              </Typography>
+            </div>
+          </div>
+        )}
+      </Spring>
+
+      <Spring
+        from={{ opacity: 0 }}
+        to={{ opacity: 1 }}
+        config={{ delay: 1500, duration: 1000 }}
+      >
+        {(props) => (
+          <div style={props}>
+            <div>
+              <Typography variant="h6" color="primary">
+                WEB DEVELOPER
+              </Typography>
+            </div>
+          </div>
+        )}
+      </Spring>
     </div>
   )
 }
